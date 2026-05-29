@@ -36,8 +36,8 @@ public class TodosTest {
         todos.add(task);
 
         Task[] result = todos.search("молоко");
-        Assertions.assertEquals(1, result.length);
-        Assertions.assertEquals(task, result[0]);
+        Task[] expected = {task};
+        Assertions.assertArrayEquals(expected, result);
     }
 
     @Test
@@ -48,8 +48,8 @@ public class TodosTest {
         todos.add(epic);
 
         Task[] result = todos.search("хлеб");
-        Assertions.assertEquals(1, result.length);
-        Assertions.assertEquals(epic, result[0]);
+        Task[] expected = {epic};
+        Assertions.assertArrayEquals(expected, result);
     }
 
     @Test
@@ -59,8 +59,8 @@ public class TodosTest {
         todos.add(meeting);
 
         Task[] result = todos.search("Планёрка");
-        Assertions.assertEquals(1, result.length);
-        Assertions.assertEquals(meeting, result[0]);
+        Task[] expected = {meeting};
+        Assertions.assertArrayEquals(expected, result);
     }
 
     @Test
@@ -70,8 +70,8 @@ public class TodosTest {
         todos.add(meeting);
 
         Task[] result = todos.search("Нетология");
-        Assertions.assertEquals(1, result.length);
-        Assertions.assertEquals(meeting, result[0]);
+        Task[] expected = {meeting};
+        Assertions.assertArrayEquals(expected, result);
     }
 
     @Test
@@ -81,6 +81,7 @@ public class TodosTest {
         todos.add(task);
 
         Task[] result = todos.search("несуществующий");
-        Assertions.assertEquals(0, result.length);
+        Task[] expected = {};
+        Assertions.assertArrayEquals(expected, result);
     }
 }
