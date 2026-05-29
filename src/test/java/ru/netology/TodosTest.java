@@ -84,4 +84,22 @@ public class TodosTest {
         Task[] expected = {};
         Assertions.assertArrayEquals(expected, result);
     }
+
+    // НОВЫЙ ТЕСТ - НЕСКОЛЬКО ЗАДАЧ
+    @Test
+    public void searchShouldFindSeveralTasks() {
+        SimpleTask task1 = new SimpleTask(1, "Купить молоко");
+        SimpleTask task2 = new SimpleTask(2, "Купить хлеб");
+        SimpleTask task3 = new SimpleTask(3, "Позвонить родителям");
+
+        Todos todos = new Todos();
+        todos.add(task1);
+        todos.add(task2);
+        todos.add(task3);
+
+        Task[] result = todos.search("Купить");
+        Task[] expected = {task1, task2};
+
+        Assertions.assertArrayEquals(expected, result);
+    }
 }
